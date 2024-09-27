@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Perbankan</title>
+    <script src="banking_system.js" defer></script>
+</head>
+<body>
+    <h1>Sistem Perbankan</h1>
+    <div id="account-section" style="display:none;">
+        <h2>Pemilik Akun: <span id="owner-name"></span></h2>
+        <h3>Saldo: <span id="balance-amount"></span></h3>
+        <button onclick="deposit()">Deposit</button>
+        <button onclick="withdraw()">Penarikan</button>
+        <button onclick="logout()">Keluar</button>
+    </div>
+    <div id="menu-section">
+        <button id="LOGIN">LOGIN</button>
+    </div>
+    <div id="message" style="color:red;"></div>
+</body>
+</html>
