@@ -38,7 +38,7 @@ class Nasabah {
 }
 
 const daftarAkun = [];
-akunAktif = null;
+let akunAktif = null;
 
 function perbaruiUI() {
     if (akunAktif) {
@@ -53,22 +53,21 @@ function perbaruiUI() {
 }
 
 function kelolaAkun() {
-    pilihan = +prompt("1. Buat Akun Baru\n2. Pilih Akun\nPilih:");
+    let pilihan = +prompt("1. Buat Akun Baru\n2. Pilih Akun\nPilih:");
     try {
+        let akunSudahAda = null;
+
         if (pilihan === 1) {
             const namaNasabah = prompt("Masukkan nama:");
             if (!namaNasabah) {
                 throw new Error("Nama tidak boleh kosong.");
             }
-            for (let i = 0; i < daftarAkun.length; i++) {
-                if (daftarAkun[i].nama.toLowerCase() === namaNasabah.toLowerCase()) {
-                    akunSudahAda = daftarAkun[i];
-                    break;
-                }
-            }
+
+            akunSudahAda = daftarAkun.find(acc => acc.nama.toLowerCase() === namaNasabah.toLowerCase());
             if (akunSudahAda) {
                 throw new Error("Nama ini sudah ada. Coba nama lain.");
             }
+
             const nasabahBaru = new Nasabah(namaNasabah);
             daftarAkun.push(nasabahBaru);
             akunAktif = nasabahBaru;
