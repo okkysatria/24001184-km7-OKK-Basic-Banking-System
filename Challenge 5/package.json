@@ -1,0 +1,28 @@
+{
+  "name": "banking-system",
+  "version": "1.0.0",
+  "description": "sistem perbankan",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "nodemon app.js"
+  },
+  "keywords": ["banking", "API", "JWT", "Prisma"],
+  "author": "Nama Anda",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^5.21.1",
+    "bcryptjs": "^2.4.3",
+    "ejs": "^3.1.10",
+    "express": "^4.21.1",
+    "jsonwebtoken": "^9.0.2",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "nodemon": "^2.0.22",
+    "prisma": "^5.21.1",
+    "supertest": "^7.0.0"
+  }
+}

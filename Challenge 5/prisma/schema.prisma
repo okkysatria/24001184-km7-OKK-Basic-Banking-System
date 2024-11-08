@@ -1,0 +1,35 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Nasabah {
+  idNasabah     Int       @id @default(autoincrement())
+  nama          String
+  nomorTelepon  String
+  alamat        String
+  akun          Akun[]
+}
+
+model Akun {
+  idAkun        Int       @id @default(autoincrement())
+  nomorRekening String
+  saldo         Float
+  tipeAkun      String
+  nasabahId     Int
+  nasabah       Nasabah   @relation(fields: [nasabahId], references: [idNasabah])
+  transaksi     Transaksi[]
+}
+
+model Transaksi {
+  idTransaksi   Int       @id @default(autoincrement())
+  jumlah        Float
+  tanggal       DateTime  @default(now())
+  tipeTransaksi String
+  akunId        Int
+  akun          Akun      @relation(fields: [akunId], references: [idAkun])
+}
